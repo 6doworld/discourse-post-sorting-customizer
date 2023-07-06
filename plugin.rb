@@ -11,7 +11,7 @@ PLUGIN_NAME ||= 'DiscoursePostSortingCustomizer'
 
 register_asset 'stylesheets/desktop/post-sorting-buttons.scss', :desktop
 register_asset 'stylesheets/mobile/post-sorting-buttons.scss', :mobile
-gem 'request_store', '1.5.0', require: true
+gem 'request_store', '1.5.1', require: true
 
 after_initialize do
   add_to_serializer(:basic_user, :post_tab) do
@@ -61,7 +61,6 @@ after_initialize do
 
   module ::TopicsControllerExtension
     def show
-      p params[:post_tab]
       ::RequestStore.store[:post_tab] = params[:post_tab]
       super
     end
